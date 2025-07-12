@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React, { useContext } from "react";
+import Login from "./components/Login";
+import { Route, Routes } from "react-router-dom";
+import CalenderView from "./components/CalenderView";
+import "react-calendar/dist/Calendar.css";
+import AppoimentForm from "./components/AppoimentForm";
+import Appoiments from "./components/Appoiments";
+import { Context } from "./context/Contex";
+import ProtectedRoute from "./components/ProtectedRoute";
+const App = () => {
+  const { user } = useContext(Context);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route element={<ProtectedRoute user={user}/>}>
+          <Route path="/calendarView" element={<CalenderView />} />
+          <Route path="/appointments" element={<Appoiments />} />
+          <Route path="/appointments/add" element={<AppoimentForm />} />
+        </Route>
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
