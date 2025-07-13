@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import  { useContext, useEffect, useState } from "react";
 import { Context } from "../context/Contex";
 import doctors from "../data/doctors.json";
 import { useLocation, useNavigate } from "react-router-dom";

@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../context/Contex";
-import { MdEdit, MdDelete } from "react-icons/md";
+
 
 const Appoiments = () => {
   const { selectedDate, appointments, setAppointments } = useContext(Context);

@@ -1,11 +1,11 @@
 
-import React, { useContext, useState } from "react";
+import  { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../context/Contex";
 
 const Login = () => {
   const navigate = useNavigate();
-  const {user,setUser}=useContext(Context)
+  const {setUser}=useContext(Context)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
