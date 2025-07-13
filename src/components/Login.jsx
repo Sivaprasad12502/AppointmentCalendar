@@ -16,33 +16,34 @@ const Login = () => {
       setUser(true)
       navigate("/calendarView");
     } else {
-      setError("Invalid credentials");
+      setError("Invalid password or email");
     }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <h2 className="text-2xl mb-4">Clinic Staff Login</h2>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-white text-black dark:bg-black dark:text-white">
+      <h2 className="text-2xl mb-4 text-black dark:text-white font-bold">Staff Login</h2>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-72">
-        <label htmlFor="email">Enter Email</label>
+        <label htmlFor="email" className="bg-white text-black dark:bg-black dark:text-white">Enter Email</label>
         <input
           id="email"
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="border p-2"
+          className="border p-2 bg-white text-black dark:bg-black dark:text-white"
+
         />
-        <label htmlFor="password">EnterPassword</label>
+        <label htmlFor="password" className="bg-white text-black dark:bg-black dark:text-white">EnterPassword</label>
         <input
           id="password"
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="border p-2"
+          className="border p-2 bg-white text-black dark:bg-black dark:text-white"
         />
-        <button type="submit" className="bg-blue-500 text-white p-2">
+        <button type="submit" className="bg-black text-white dark:bg-white dark:text-black p-2">
           Login
         </button>
         {error && <p className="text-red-500">{error}</p>}

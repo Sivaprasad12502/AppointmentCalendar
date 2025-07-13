@@ -11,6 +11,20 @@ const ContextProvider = (props) => {
     return saved ? saved:'';
   })
   const [user,setUser]=useState(false)
+  const [darkMode,setDarkMode]=useState(()=>{
+    const saved=localStorage.getItem('theme')
+    if(saved) return saved==='dark'
+  })
+  useEffect(()=>{
+    const html=document.documentElement;
+    if(darkMode){
+      html.classList.add('dark')
+      localStorage.setItem('theme','dark')
+    }else{
+      html.classList.remove('dark');
+      localStorage.setItem('theme','light')
+    }
+  },[darkMode])
   useEffect(()=>{
     localStorage.setItem('appointments',JSON.stringify(appointments))
   },[appointments])
@@ -23,7 +37,9 @@ const ContextProvider = (props) => {
     selectedDate,
     setSelectedDate,
     user,
-    setUser
+    setUser,
+    darkMode,
+    setDarkMode
   };
   return <Context.Provider value={value}>{props.children}</Context.Provider>;
 };
